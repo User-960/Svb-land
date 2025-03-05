@@ -1,0 +1,29 @@
+@use 'normalize';
+@use 'animations';
+@use 'variables' as v;
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	flex-grow: 1;
+	color: v.$text-color;
+	background-color: v.$bg-color;
+}
+
+.container {
+	width: 100%;
+	max-width: 1432px;
+	margin: 0 auto;
+	padding: 0px 16px;
+	box-sizing: border-box;
+	position: relative;
+}
