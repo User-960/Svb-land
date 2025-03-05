@@ -4,7 +4,6 @@ class Footer {
 	render() {
 		const html = `
       <div class="container">
-        Footer
       </div>
     `
 
