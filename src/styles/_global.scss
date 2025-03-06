@@ -28,6 +28,11 @@ body {
 	letter-spacing: 0;
 }
 
+menu {
+	padding: 0px;
+	margin: 0px;
+}
+
 a {
 	list-style: none;
 	color: v.$snow;
@@ -35,8 +40,18 @@ a {
 	cursor: pointer;
 }
 
+ul,
+ol {
+	padding: 0;
+	margin: 0;
+	border: none;
+	outline: none;
+}
+
 li {
 	list-style: none;
+	border: none;
+	outline: none;
 }
 
 button {
