@@ -2,10 +2,17 @@ import { ROOT_HEADER } from '../../constants'
 import './Header.module.scss'
 import iconLogo from '../../assets/logo.svg'
 import iconPhone from '../../assets/phone.svg'
-
-const links = ['Главная', 'Основное меню', 'Наши сервисы', 'Контакты']
+import iconBurger from '../../assets/burger.svg'
 
 class Header {
+	toggleSubMenu(selector) {
+		if (selector.classList.contains('open')) {
+			selector.classList.remove('open')
+		} else {
+			selector.classList.add('open')
+		}
+	}
+
 	render() {
 		const html = `
       <div class="container">
@@ -21,7 +28,7 @@ class Header {
               </a>
             </li>
 
-            <li class='header__menu-item'>
+            <li class='header__menu-item header__menu-item--sub' onclick="${this.toggleSubMenu(this)}">
               Основное меню
               <ul class='header__submenu'>
                 <li class='header__submenu-item'>
@@ -74,10 +81,14 @@ class Header {
 
           </ul>
 
-          <a class='header__phone' href="#">
+          <a class='header__phone' href="tel:+13212223333">
             <img src="${iconPhone}" class="phone" alt="phone" width='24' height='24' />
             <span class='header__phone-number'>+1 (321) 222 - 33 -33</span>
           </a>
+
+          <button class="header__burger">
+            <img src="${iconBurger}" class="burger" alt="burger" width='22' height='12' />
+          </button>
         </div>
       </div>
     `
