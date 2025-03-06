@@ -1,7 +1,7 @@
 import { ROOT_HEADER } from '../../constants'
 import './Header.module.scss'
-import Logo from '../../assets/logo.svg'
-import Phone from '../../assets/phone.svg'
+import iconLogo from '../../assets/logo.svg'
+import iconPhone from '../../assets/phone.svg'
 
 const links = ['Главная', 'Основное меню', 'Наши сервисы', 'Контакты']
 
@@ -11,15 +11,71 @@ class Header {
       <div class="container">
         <div class="header__inner">
           <a href="#" target="_blank">
-            <img src="${Logo}" class="header__logo" alt="logo" width='46' height='46' />
+            <img src="${iconLogo}" class="header__logo" alt="logo" width='46' height='46' />
           </a>
 
-          <ul>
-            <li></li>
+          <menu class='header__menu'>
+            <li class='header__menu-item'>
+              <a href="#" class="header__menu-link">
+                Главная
+              </a>
+            </li>
+
+            <li class='header__menu-item'>
+              Основное меню
+              <ul class='header__submenu'>
+                <li class='header__submenu-item'>
+                  <a href="#" class="header__menu-link">
+                    Заказать вёрстку
+                  </a>
+                </li>
+
+                <li class='header__submenu-item'>
+                  <a href="#" class="header__menu-link">
+                    Отправить макет на проверку
+                  </a>
+                </li>
+
+                <li class='header__submenu-item'>
+                  <a href="#" class="header__menu-link">
+                    Хочу работать у вас
+                  </a>
+                </li>
+
+                <li class='header__submenu-item'>
+                  <span>Есть предложение по работе с кл...<span>
+                  <ul class='header__submenu-sub'>
+                    <li class='header__submenu-item'>
+                      <a href="#" class="header__menu-link">
+                        У меня есть оффер
+                      </a>
+                    </li>
+                    <li class='header__submenu-item'>
+                      <a href="#" class="header__menu-link">
+                        Сделать партнёром
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </menu>
+
+            <li class='header__menu-item'>
+              <a href="#" class="header__menu-link">
+                Наши сервисы
+              </a>
+            </li>
+
+            <li class='header__menu-item'>
+              <a href="#" class="header__menu-link">
+                Контакты
+              </a>
+            </li>
+
           </ul>
 
           <a class='header__phone' href="#">
-            <img src="${Phone}" class="phone" alt="phone" width='24' height='24' />
+            <img src="${iconPhone}" class="phone" alt="phone" width='24' height='24' />
             <span class='header__phone-number'>+1 (321) 222 - 33 -33</span>
           </a>
         </div>
