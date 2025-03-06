@@ -20,14 +20,31 @@ class Header {
 
 	addEventListeners() {
 		const subMenuItems = document.querySelectorAll('.header__menu-item--sub')
+		const subSubMenuItems = document.querySelectorAll('.header__submenu-item--sub')
+		const burger = document.querySelector('.header__burger')
 
 		subMenuItems.forEach(item => {
 			item.addEventListener('click', event => {
 				event.stopPropagation()
-				console.log(1)
-				const submenu = item.querySelector('.header__submenu')
+				const submenu = item.querySelector('.header__menu-wrapper')
 				this.toggleSubMenu(submenu)
+				this.toggleSubMenu(item)
 			})
+		})
+
+		subSubMenuItems.forEach(item => {
+			item.addEventListener('click', event => {
+				event.stopPropagation()
+				const submenu = item.querySelector('.header__submenu-wrapper')
+				this.toggleSubMenu(submenu)
+				this.toggleSubMenu(item)
+			})
+		})
+
+		burger.addEventListener('click', event => {
+			event.stopPropagation()
+			const menu = document.querySelector('.header__menu')
+			this.toggleSubMenu(menu)
 		})
 	}
 
@@ -35,65 +52,72 @@ class Header {
 		const html = `
       <div class="container">
         <div class="header__inner">
-          <a href="#" target="_blank">
-            <img src="${iconLogo}" class="header__logo" alt="logo" width='46' height='46' />
+          <a class="header__logo" href="#" target="_blank">
+            <img src="${iconLogo}" alt="logo" width='46' height='46' />
           </a>
 
           <menu class='header__menu'>
             <li class='header__menu-item'>
               <a href="#" class="header__menu-link">
-                Главная
+                <span>Главная</span>
               </a>
             </li>
 
             <li class='header__menu-item header__menu-item--sub'>
-              Основное меню
+              <span class="header__menu-link">
+                Основное меню
+              </span>
+            
+              <div class='header__menu-wrapper'>
               <ul class='header__submenu'>
                 <li class='header__submenu-item'>
-                  <a href="#" class="header__menu-link">
-                    Заказать вёрстку
+                  <a href="#" class="header__submenu-link">
+                    <span>Заказать вёрстку</span>
                   </a>
                 </li>
 
                 <li class='header__submenu-item'>
-                  <a href="#" class="header__menu-link">
-                    Отправить макет на проверку
+                  <a href="#" class="header__submenu-link">
+                    <span>Отправить макет на проверку</span>
                   </a>
                 </li>
 
                 <li class='header__submenu-item'>
-                  <a href="#" class="header__menu-link">
-                    Хочу работать у вас
+                  <a href="#" class="header__submenu-link">
+                    <span>Хочу работать у вас</span>
                   </a>
                 </li>
 
-                <li class='header__submenu-item'>
-                  <span>Есть предложение по работе с кл...<span>
-                  <ul class='header__submenu-sub'>
-                    <li class='header__submenu-item'>
-                      <a href="#" class="header__menu-link">
-                        У меня есть оффер
-                      </a>
-                    </li>
-                    <li class='header__submenu-item'>
-                      <a href="#" class="header__menu-link">
-                        Сделать партнёром
-                      </a>
-                    </li>
-                  </ul>
+                <li class='header__submenu-item header__submenu-item--sub last-item'>
+                  <span class="header__submenu-link">Есть предложение по работе с кл...</span>
+                  <div class='header__submenu-wrapper'>
+                    <ul class='header__submenu-sub'>
+                      <li class='header__submenu-sub-item first-item'>
+                        <a href="#" class="header__submenu-sub-link">
+                          <span>У меня есть оффер</span>
+                        </a>
+                      </li>
+                      <li class='header__submenu-sub-item last-item'>
+                        <a href="#" class="header__submenu-sub-link">
+                          <span>Сделать партнёром</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
               </ul>
+              </div>
             </li>
 
             <li class='header__menu-item'>
               <a href="#" class="header__menu-link">
-                Наши сервисы
+                <span>Наши сервисы</span>
               </a>
             </li>
 
             <li class='header__menu-item'>
               <a href="#" class="header__menu-link">
-                Контакты
+                <span>Контакты</span>
               </a>
             </li>
           </menu>
