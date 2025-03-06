@@ -3,7 +3,7 @@ import './styles/style.scss'
 
 document.addEventListener('DOMContentLoaded', () => {
 	const render = () => {
-		headerComponent.render()
+		// headerComponent.render()
 		footerComponent.render()
 	}
 	render()

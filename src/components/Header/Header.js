@@ -5,12 +5,30 @@ import iconPhone from '../../assets/phone.svg'
 import iconBurger from '../../assets/burger.svg'
 
 class Header {
-	toggleSubMenu(selector) {
-		if (selector.classList.contains('open')) {
-			selector.classList.remove('open')
+	constructor() {
+		this.render()
+		this.addEventListeners()
+	}
+
+	toggleSubMenu(menu) {
+		if (menu.classList.contains('open')) {
+			menu.classList.remove('open')
 		} else {
-			selector.classList.add('open')
+			menu.classList.add('open')
 		}
+	}
+
+	addEventListeners() {
+		const subMenuItems = document.querySelectorAll('.header__menu-item--sub')
+
+		subMenuItems.forEach(item => {
+			item.addEventListener('click', event => {
+				event.stopPropagation()
+				console.log(1)
+				const submenu = item.querySelector('.header__submenu')
+				this.toggleSubMenu(submenu)
+			})
+		})
 	}
 
 	render() {
@@ -28,7 +46,7 @@ class Header {
               </a>
             </li>
 
-            <li class='header__menu-item header__menu-item--sub' onclick="${this.toggleSubMenu(this)}">
+            <li class='header__menu-item header__menu-item--sub'>
               Основное меню
               <ul class='header__submenu'>
                 <li class='header__submenu-item'>
@@ -65,7 +83,7 @@ class Header {
                   </ul>
                 </li>
               </ul>
-            </menu>
+            </li>
 
             <li class='header__menu-item'>
               <a href="#" class="header__menu-link">
@@ -78,17 +96,18 @@ class Header {
                 Контакты
               </a>
             </li>
+          </menu>
 
-          </ul>
+          <div class='header__nav'>
+            <a class='header__phone' href="tel:+13212223333">
+              <img src="${iconPhone}" class="phone" alt="phone" width='24' height='24' />
+              <span class='header__phone-number'>+1 (321) 222 - 33 -33</span>
+            </a>
 
-          <a class='header__phone' href="tel:+13212223333">
-            <img src="${iconPhone}" class="phone" alt="phone" width='24' height='24' />
-            <span class='header__phone-number'>+1 (321) 222 - 33 -33</span>
-          </a>
-
-          <button class="header__burger">
-            <img src="${iconBurger}" class="burger" alt="burger" width='22' height='12' />
-          </button>
+            <button class="header__burger">
+              <img src="${iconBurger}" class="burger" alt="burger" width='22' height='12' />
+            </button>
+          <div>
         </div>
       </div>
     `
