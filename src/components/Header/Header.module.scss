@@ -5,9 +5,6 @@
 	color: v.$snow;
 	background: v.$secondary-color;
 	box-shadow: v.$shadow-default;
-	@include m.mobile-big {
-		overflow-x: hidden;
-	}
 
 	&__inner {
 		display: flex;
@@ -45,10 +42,14 @@
 			top: 80px;
 			right: -200%;
 			max-width: 374px;
+			width: 100%;
 			flex-direction: column;
 			justify-content: flex-start;
+			animation: slideOut 0.2s;
 			&.open {
 				right: 0%;
+				opacity: 1;
+				animation: slideIn 0.2s;
 			}
 		}
 
@@ -56,6 +57,9 @@
 			position: relative;
 			display: none;
 			animation: opacityIn 0.2s;
+			@include m.mobile-big {
+				width: 100%;
+			}
 			&.open {
 				display: flex;
 				opacity: 1;
@@ -72,6 +76,9 @@
 				background-size: contain;
 				background-position: center;
 				transform: rotate(90deg) translate(290%, -150%);
+				@include m.mobile-big {
+					display: none;
+				}
 			}
 		}
 
@@ -80,6 +87,9 @@
 			user-select: none;
 			@include m.mobile-big {
 				background: v.$gray;
+				display: flex;
+				align-items: flex-start;
+				flex-direction: column;
 			}
 
 			&--sub {
@@ -102,6 +112,8 @@
 					transform: translateY(-50%) rotate(180deg);
 					@include m.mobile-big {
 						right: 20px;
+						top: 0%;
+						transform: translateY(0%) rotate(180deg);
 					}
 				}
 				&.open {
@@ -119,6 +131,9 @@
 			padding: 8px 18px;
 			cursor: pointer;
 			transition: all 0.2s ease-in;
+			@include m.mobile-big {
+				text-align: start;
+			}
 			@media (hover: hover) {
 				&:hover {
 					color: v.$main-color;
@@ -145,6 +160,11 @@
 		position: absolute;
 		bottom: 0%;
 		transform: translate(0%, 121.5%);
+		@include m.mobile-big {
+			transform: translate(0%, 0%);
+			position: static;
+			width: 100%;
+		}
 		&-item {
 			background: v.$gray;
 			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -180,6 +200,10 @@
 					background-position: center;
 					transition: 0.3s;
 					transform: translateY(-50%) rotate(90deg);
+					@include m.mobile-big {
+						top: 0;
+						transform: translateY(0%) rotate(90deg);
+					}
 				}
 				@media (hover: hover) {
 					&:hover {
@@ -207,6 +231,9 @@
 			cursor: pointer;
 			transition: all 0.2s ease-in;
 			border-radius: 8px;
+			@include m.mobile-big {
+				min-width: auto;
+			}
 			@media (hover: hover) {
 				&:hover {
 					background: v.$secondary-color;
@@ -237,6 +264,13 @@
 			right: 0;
 			bottom: 0;
 			transform: translate(110%, 0%);
+			@include m.mobile-big {
+				transform: translate(0%, 0%);
+				position: static;
+				width: 100%;
+				min-width: 100%;
+				max-width: 100%;
+			}
 			&-item {
 				background: v.$gray;
 				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -271,6 +305,9 @@
 						background-repeat: no-repeat;
 						background-size: contain;
 						background-position: center;
+						@include m.mobile-big {
+							display: none;
+						}
 					}
 				}
 			}
@@ -284,6 +321,9 @@
 				padding: 8px 12px 8px 18px;
 				cursor: pointer;
 				transition: all 0.2s ease-in;
+				@include m.mobile-big {
+					min-width: auto;
+				}
 				@media (hover: hover) {
 					&:hover {
 						background: v.$secondary-color;
@@ -300,13 +340,11 @@
 	&__nav {
 		display: flex;
 		align-items: center;
-		@include m.mobile-small {
-			gap: 28px;
-		}
 	}
 
 	&__burger {
 		display: none;
+		margin: 0px 0px 0px 18px;
 		@include m.mobile-big {
 			display: block;
 		}
@@ -329,6 +367,30 @@
 	}
 
 	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes slideIn {
+	0% {
+		right: -200%;
+		opacity: 0;
+	}
+
+	100% {
+		right: 0%;
+		opacity: 1;
+	}
+}
+
+@keyframes slideOut {
+	0% {
+		right: 0%;
+		opacity: 1;
+	}
+
+	100% {
+		right: -200%;
 		opacity: 0;
 	}
 }

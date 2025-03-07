@@ -56,50 +56,50 @@ class Header {
             <img src="${iconLogo}" alt="logo" width='46' height='46' />
           </a>
 
-          <menu class='header__menu'>
+          <menu class='header__menu open'>
             <li class='header__menu-item'>
               <a href="#" class="header__menu-link">
-                <span>Главная</span>
+                <div>Главная</div>
               </a>
             </li>
 
             <li class='header__menu-item header__menu-item--sub'>
-              <span class="header__menu-link">
+              <div class="header__menu-link">
                 Основное меню
-              </span>
+              </div>
             
-              <div class='header__menu-wrapper'>
+              <div class='header__menu-wrapper open'>
               <ul class='header__submenu'>
                 <li class='header__submenu-item'>
                   <a href="#" class="header__submenu-link">
-                    <span>Заказать вёрстку</span>
+                    <div>Заказать вёрстку</div>
                   </a>
                 </li>
 
                 <li class='header__submenu-item'>
                   <a href="#" class="header__submenu-link">
-                    <span>Отправить макет на проверку</span>
+                    <div>Отправить макет на проверку</div>
                   </a>
                 </li>
 
                 <li class='header__submenu-item'>
                   <a href="#" class="header__submenu-link">
-                    <span>Хочу работать у вас</span>
+                    <div>Хочу работать у вас</div>
                   </a>
                 </li>
 
                 <li class='header__submenu-item header__submenu-item--sub last-item'>
-                  <span class="header__submenu-link">Есть предложение по работе с кл...</span>
+                  <div class="header__submenu-link">Есть предложение по работе с кл...</div>
                   <div class='header__submenu-wrapper'>
                     <ul class='header__submenu-sub'>
                       <li class='header__submenu-sub-item first-item'>
                         <a href="#" class="header__submenu-sub-link">
-                          <span>У меня есть оффер</span>
+                          <div>У меня есть оффер</div>
                         </a>
                       </li>
                       <li class='header__submenu-sub-item last-item'>
                         <a href="#" class="header__submenu-sub-link">
-                          <span>Сделать партнёром</span>
+                          <div>Сделать партнёром</div>
                         </a>
                       </li>
                     </ul>
@@ -111,13 +111,13 @@ class Header {
 
             <li class='header__menu-item'>
               <a href="#" class="header__menu-link">
-                <span>Наши сервисы</span>
+                <div>Наши сервисы</div>
               </a>
             </li>
 
             <li class='header__menu-item'>
               <a href="#" class="header__menu-link">
-                <span>Контакты</span>
+                <div>Контакты</div>
               </a>
             </li>
           </menu>
@@ -125,7 +125,7 @@ class Header {
           <div class='header__nav'>
             <a class='header__phone' href="tel:+13212223333">
               <img src="${iconPhone}" class="phone" alt="phone" width='24' height='24' />
-              <span class='header__phone-number'>+1 (321) 222 - 33 -33</span>
+              <div class='header__phone-number'>+1 (321) 222 - 33 -33</div>
             </a>
 
             <button class="header__burger">
