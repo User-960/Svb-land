@@ -1,4 +1,3 @@
-import './Header.module.scss'
 import { ROOT_HEADER, ROOT_APP } from '../../constants'
 import { cutString, toggleBlackout } from '../../utils'
 import { variables } from '../../helpers'
@@ -10,6 +9,7 @@ export class Header {
 	constructor() {
 		this.render()
 		this.addEventListeners()
+		this.startInstructions()
 	}
 
 	toggleSubMenu(menu) {
@@ -17,6 +17,18 @@ export class Header {
 			menu.classList.remove('open')
 		} else {
 			menu.classList.add('open')
+		}
+	}
+
+	toggleMenu(menu) {
+		if (menu.classList.contains('open')) {
+			menu.classList.remove('open')
+			setTimeout(() => {
+				menu.classList.add('close')
+			}, 200)
+		} else {
+			menu.classList.add('open')
+			menu.classList.remove('close')
 		}
 	}
 
@@ -47,7 +59,7 @@ export class Header {
 		burger.addEventListener('click', e => {
 			e.stopPropagation()
 			const menu = document.querySelector('.header__menu')
-			this.toggleSubMenu(menu)
+			this.toggleMenu(menu)
 			toggleBlackout(ROOT_APP)
 		})
 
@@ -72,13 +84,24 @@ export class Header {
 			document.querySelectorAll('.open').forEach(item => {
 				if (item.classList.contains('open')) {
 					item.classList.remove('open')
-					toggleBlackout(ROOT_APP)
-				} else {
-					item.classList.add('open')
+
+					if (item.classList.contains('header__menu')) {
+						setTimeout(() => {
+							item.classList.add('close')
+						}, 200)
+					}
+
 					toggleBlackout(ROOT_APP)
 				}
 			})
 		})
+	}
+
+	startInstructions() {
+		const menu = document.querySelector('.header__menu')
+		if (window.innerWidth <= variables.breakpoints.md) {
+			menu.classList.add('close')
+		}
 	}
 
 	render() {
@@ -91,7 +114,7 @@ export class Header {
 
           <menu class='header__menu'>
             <li class='header__menu-item'>
-              <a href="#" class="header__menu-link">
+              <a href="#" target="_blank" class="header__menu-link">
                 <div class="header__menu-link-text">Главная</div>
               </a>
             </li>
@@ -104,19 +127,19 @@ export class Header {
               <div class='header__menu-wrapper'>
                 <ul class='header__submenu'>
                   <li class='header__submenu-item'>
-                    <a href="#" class="header__submenu-link">
+                    <a href="#" target="_blank" class="header__submenu-link">
                       <div class="header__submenu-link-text" data-val='Заказать вёрстку'>Заказать вёрстку</div>
                     </a>
                   </li>
 
                   <li class='header__submenu-item'>
-                    <a href="#" class="header__submenu-link">
+                    <a href="#" target="_blank" class="header__submenu-link">
                       <div class="header__submenu-link-text" data-val='Отправить макет на проверку'>Отправить макет на проверку</div>
                     </a>
                   </li>
 
                   <li class='header__submenu-item'>
-                    <a href="#" class="header__submenu-link">
+                    <a href="#" target="_blank" class="header__submenu-link">
                       <div class="header__submenu-link-text" data-val='Хочу работать у вас'>Хочу работать у вас</div>
                     </a>
                   </li>
@@ -128,13 +151,13 @@ export class Header {
                     <div class='header__submenu-wrapper'>
                       <ul class='header__submenu-sub'>
                         <li class='header__submenu-sub-item first-item'>
-                          <a href="#" class="header__submenu-sub-link">
+                          <a href="#" target="_blank" class="header__submenu-sub-link">
                             <div data-val='У меня есть оффер'>У меня есть оффер</div>
                           </a>
                         </li>
                         
                         <li class='header__submenu-sub-item last-item'>
-                          <a href="#" class="header__submenu-sub-link">
+                          <a href="#" target="_blank" class="header__submenu-sub-link">
                             <div data-val='Сделать партнёром'>Сделать партнёром</div>
                           </a>
                         </li>
@@ -146,13 +169,13 @@ export class Header {
             </li>
 
             <li class='header__menu-item'>
-              <a href="#" class="header__menu-link">
+              <a href="#" target="_blank" class="header__menu-link">
                 <div class="header__menu-link-text" data-val='Наши сервисы'>Наши сервисы</div>
               </a>
             </li>
 
             <li class='header__menu-item'>
-              <a href="#" class="header__menu-link">
+              <a href="#" target="_blank" class="header__menu-link">
                 <div class="header__menu-link-text" data-val='Контакты'>Контакты</div>
               </a>
             </li>
