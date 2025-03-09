@@ -1,7 +1,7 @@
-export function toggleBlackout() {
-	if (document.body.classList.contains('blackout')) {
-		document.body.classList.remove('blackout')
+export function toggleBlackout(element) {
+	if (element.classList.contains('blackout')) {
+		element.classList.remove('blackout')
 	} else {
-		document.body.classList.add('blackout')
+		element.classList.add('blackout')
 	}
 }

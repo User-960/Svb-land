@@ -48,7 +48,7 @@ class Header {
 			e.stopPropagation()
 			const menu = document.querySelector('.header__menu')
 			this.toggleSubMenu(menu)
-			toggleBlackout()
+			toggleBlackout(ROOT_APP)
 		})
 
 		textsCut.forEach(item => {
@@ -72,8 +72,10 @@ class Header {
 			document.querySelectorAll('.open').forEach(item => {
 				if (item.classList.contains('open')) {
 					item.classList.remove('open')
+					toggleBlackout(ROOT_APP)
 				} else {
 					item.classList.add('open')
+					toggleBlackout(ROOT_APP)
 				}
 			})
 		})

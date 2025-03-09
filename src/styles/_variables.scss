@@ -20,8 +20,14 @@ $header-height: 80px;
 /* FONTS */
 $font-default: 'Roboto';
 
+/* ANIMATIONS */
+$menu-slide-in: slideIn 0.35s;
+$menu-slide-out: slideOut 0.35s;
+$menu-opacity-in: opacityIn 0.2s;
+$menu-opacity-out: opacityOut 0.2s;
+
 // DEVICE WIDTH
 $mobile-small-width: 375px;
 $mobile-width: 550px;
-$tablet-width: 840px;
+$tablet-width: 768px;
 $desktop-width: 1080px;
