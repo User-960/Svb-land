@@ -26,6 +26,7 @@ body {
 	line-height: 140%;
 	font-style: normal;
 	letter-spacing: 0;
+	overflow-x: hidden;
 }
 
 menu {
@@ -46,6 +47,7 @@ ol {
 	margin: 0;
 	border: none;
 	outline: none;
+	list-style: none;
 }
 
 li {
@@ -80,11 +82,29 @@ button {
 }
 
 #app {
+	position: relative;
 	width: 100%;
-	height: 100%;
+	min-height: 100%;
 	flex-grow: 1;
-	// background: url('../assets/alpaca.png');
+	background: url('../assets/alpaca.png');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	&.blackout {
+		@include m.mobile-big {
+			&::after {
+				content: '';
+				position: fixed;
+				bottom: 0%;
+				left: 0%;
+				top: 0%;
+				left: 0%;
+				width: 100%;
+				height: 100%;
+				background: v.$secondary-color;
+				opacity: 50%;
+				z-index: 0;
+			}
+		}
+	}
 }

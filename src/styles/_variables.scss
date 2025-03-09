@@ -14,8 +14,17 @@ $secondary-color: #131417;
 
 $shadow-default: 0px 4px 4px 0px #13141766;
 
+/* SIZE */
+$header-height: 80px;
+
 /* FONTS */
 $font-default: 'Roboto';
+
+/* ANIMATIONS */
+$menu-slide-in: slideIn 0.35s;
+$menu-slide-out: slideOut 0.35s;
+$menu-opacity-in: opacityIn 0.2s;
+$menu-opacity-out: opacityOut 0.2s;
 
 // DEVICE WIDTH
 $mobile-small-width: 375px;
