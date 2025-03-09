@@ -132,6 +132,7 @@ class Header {
                             <div data-val='У меня есть оффер'>У меня есть оффер</div>
                           </a>
                         </li>
+                        
                         <li class='header__submenu-sub-item last-item'>
                           <a href="#" class="header__submenu-sub-link">
                             <div data-val='Сделать партнёром'>Сделать партнёром</div>
