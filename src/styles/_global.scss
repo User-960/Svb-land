@@ -12,6 +12,7 @@ html {
 }
 
 body {
+	min-height: 100vh;
 	position: relative;
 	margin: 0;
 	padding: 0;
@@ -26,7 +27,6 @@ body {
 	line-height: 140%;
 	font-style: normal;
 	letter-spacing: 0;
-	overflow-x: hidden;
 }
 
 menu {
@@ -39,6 +39,7 @@ a {
 	color: v.$snow;
 	text-decoration: none;
 	cursor: pointer;
+	user-select: none;
 }
 
 ul,
@@ -48,12 +49,14 @@ ol {
 	border: none;
 	outline: none;
 	list-style: none;
+	user-select: none;
 }
 
 li {
 	list-style: none;
 	border: none;
 	outline: none;
+	user-select: none;
 }
 
 button {
@@ -90,6 +93,9 @@ button {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	@include m.mobile {
+		background-position: 35% center;
+	}
 	&.blackout {
 		@include m.mobile-big {
 			&::after {

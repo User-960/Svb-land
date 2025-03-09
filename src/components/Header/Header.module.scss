@@ -39,7 +39,9 @@
 			max-width: 488px;
 		}
 		@include m.mobile-big {
-			height: calc(100vh - v.$header-height);
+			box-shadow: v.$shadow-menu-mobile;
+			min-height: calc(100vh - v.$header-height);
+			overflow-y: scroll;
 			background: v.$secondary-color;
 			position: absolute;
 			top: v.$header-height;
@@ -50,12 +52,14 @@
 			flex-direction: column;
 			justify-content: flex-start;
 			animation: v.$menu-slide-out;
-			display: none;
 			&.open {
 				display: flex;
 				right: 0%;
 				opacity: 1;
 				animation: v.$menu-slide-in;
+			}
+			&.close {
+				display: none;
 			}
 		}
 
@@ -111,7 +115,7 @@
 
 			&--sub {
 				position: relative;
-				@media (hover: hover) {
+				@media (hover: hover) and (min-width: 768px) {
 					&:hover {
 						background: v.$secondary-color;
 						& .header__menu-link--sub .header__menu-link-text:before {
@@ -153,6 +157,7 @@
 			@media (max-width: 910px) {
 				font-size: 16px;
 				padding: 8px 12px;
+				transition: none;
 			}
 			@include m.mobile-big {
 				text-align: start;
@@ -163,7 +168,7 @@
 				font-size: clamp(1rem, 0.1277rem + 4.2553vw, 1.125rem);
 			}
 
-			@media (hover: hover) {
+			@media (hover: hover) and (min-width: 768px) {
 				&:hover {
 					color: v.$main-color;
 				}
@@ -198,6 +203,9 @@
 					&:hover {
 						color: v.$main-color;
 					}
+				}
+				@include m.active {
+					color: v.$main-color;
 				}
 			}
 		}
@@ -253,7 +261,7 @@
 
 			&--sub {
 				position: relative;
-				@media (hover: hover) {
+				@media (hover: hover) and (min-width: 768px) {
 					&:hover {
 						& .header__submenu-wrapper {
 							display: flex;
@@ -290,6 +298,10 @@
 			padding: 8px 18px;
 			transition: all 0.2s ease-in;
 			position: relative;
+			@media (max-width: 910px) {
+				transition: none;
+			}
+
 			@include m.mobile-big {
 				min-width: auto;
 				padding: 20px;
@@ -443,6 +455,10 @@
 				padding: 8px 12px 8px 18px;
 				cursor: pointer;
 				transition: all 0.2s ease-in;
+				@media (max-width: 910px) {
+					transition: none;
+				}
+
 				@include m.mobile-big {
 					min-width: auto;
 					padding: 20px;
@@ -450,7 +466,7 @@
 				@include m.mobile-small {
 					font-size: clamp(1rem, 0.1277rem + 4.2553vw, 1.125rem);
 				}
-				@media (hover: hover) {
+				@media (hover: hover) and (min-width: 768px) {
 					&:hover {
 						background: v.$secondary-color;
 						color: v.$main-color;
