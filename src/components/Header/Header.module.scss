@@ -169,7 +169,7 @@
 				}
 			}
 
-			&:active {
+			@include m.active {
 				color: v.$main-color;
 			}
 
@@ -247,7 +247,7 @@
 				}
 			}
 
-			&:active {
+			@include m.active {
 				background: v.$secondary-color;
 			}
 
@@ -307,7 +307,7 @@
 				}
 			}
 
-			&:active {
+			@include m.active {
 				background: v.$secondary-color;
 				color: v.$main-color;
 			}
@@ -347,7 +347,9 @@
 			max-height: 40px;
 			height: 40px;
 			top: -40px;
+			z-index: -1;
 			@include m.mobile-big {
+				z-index: 0;
 				max-height: 100%;
 				height: auto;
 				top: 0px;
@@ -408,7 +410,7 @@
 					}
 				}
 
-				&:active {
+				@include m.active {
 					background: v.$secondary-color;
 				}
 
@@ -454,8 +456,7 @@
 						color: v.$main-color;
 					}
 				}
-
-				&:active {
+				@include m.active {
 					background: v.$secondary-color;
 					color: v.$main-color;
 				}
@@ -511,53 +512,5 @@
 		@include m.mobile-big {
 			display: block;
 		}
-	}
-}
-
-@keyframes opacityIn {
-	0% {
-		opacity: 0;
-		display: none;
-	}
-
-	100% {
-		opacity: 1;
-		display: flex;
-	}
-}
-
-@keyframes opacityOut {
-	0% {
-		opacity: 1;
-	}
-
-	100% {
-		opacity: 0;
-	}
-}
-
-@keyframes slideIn {
-	0% {
-		right: -200%;
-		opacity: 0;
-	}
-
-	100% {
-		right: 0%;
-		opacity: 1;
-	}
-}
-
-@keyframes slideOut {
-	0% {
-		right: 0%;
-		opacity: 1;
-		display: flex;
-	}
-
-	100% {
-		right: -200%;
-		opacity: 0;
-		display: none;
 	}
 }

@@ -6,7 +6,7 @@ import iconLogo from '../../assets/logo.svg'
 import iconPhone from '../../assets/phone.svg'
 import iconBurger from '../../assets/burger.svg'
 
-class Header {
+export class Header {
 	constructor() {
 		this.render()
 		this.addEventListeners()
@@ -180,5 +180,3 @@ class Header {
 		ROOT_HEADER.innerHTML = html
 	}
 }
-
-export const headerComponent = new Header()

@@ -1,23 +1,47 @@
-@keyframes opacity {
-	from {
+@keyframes opacityIn {
+	0% {
+		opacity: 0;
+		display: none;
+	}
+
+	100% {
+		opacity: 1;
+		display: flex;
+	}
+}
+
+@keyframes opacityOut {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes slideIn {
+	0% {
+		right: -200%;
 		opacity: 0;
 	}
 
-	to {
+	100% {
+		right: 0%;
 		opacity: 1;
 	}
 }
 
-@keyframes opacitySlider {
-	from {
-		opacity: 0%;
+@keyframes slideOut {
+	0% {
+		right: 0%;
+		opacity: 1;
+		display: flex;
 	}
 
-	90% {
-		opacity: 0%;
-	}
-
-	to {
-		opacity: 100%;
+	100% {
+		right: -200%;
+		opacity: 0;
+		display: none;
 	}
 }
